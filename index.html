@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFT 驗證頁面</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="fetch.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4 max-w-5xl">
+        <div class="bg-white rounded-3xl shadow-lg overflow-hidden border-2 border-gray-200">
+            <div class="p-4 text-center">
+                <h1 class="text-4xl font-bold mb-4">NFT Holders Checker</h1>
+            </div>
+
+            <div class="bg-gray-50 p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex flex-col md:flex-row items-center gap-2 flex-grow">
+                    <label class="font-medium whitespace-nowrap">NFT 合約地址:</label>
+                    <input id="contract-address" type="text" class="border border-gray-300 rounded px-4 py-2 w-full" placeholder="">
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-2 flex-grow">
+                    <label class="font-medium whitespace-nowrap">NFT token ID:</label>
+                    <input id="token-id" type="text" class="border border-gray-300 rounded px-4 py-2 w-full" placeholder="">
+                </div>
+                <button id="search-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-6 rounded whitespace-nowrap">
+                    查詢
+                </button>
+            </div>
+
+            <div class="border-t border-gray-200">
+                <div class="grid grid-cols-1 md:grid-cols-3">
+                    <div class="p-4 border-b md:border-b-0 md:border-r border-gray-200">
+                        <div id="image-container" class="flex justify-center items-center h-64">
+                            <img id="nft-image" src="" alt="" class="max-w-full max-h-full object-contain hidden">
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-2 p-4">
+                        <h2 id="nft-title" class="text-2xl font-bold mb-4">NFT title</h2>
+                        <div class="border-t border-gray-200 pt-4">
+                            <p id="nft-description" class="text-gray-700 mb-6">
+                                NFT description
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 p-4">
+                <div class="mb-2">
+                    <h3 id="holder-title" class="text-xl font-medium">NFT 持有者：</h3>
+                </div>
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div class="bg-gray-50 border border-gray-200 p-4 rounded w-full overflow-auto">
+                        <pre id="holder-addresses" class="font-mono text-sm break-all whitespace-pre-line">查詢後將顯示持有者地址</pre>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <button id="copy-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-6 rounded text-center whitespace-nowrap">
+                            一鍵複製
+                        </button>
+                        <button id="send-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-6 rounded text-center whitespace-nowrap">
+                            傳送去
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
